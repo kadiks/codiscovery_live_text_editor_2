@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Editeur de texte</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/672c9850b1.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="te-controls">
+        <button
+          aria-label="Mettre en gras"
+          class="te-btn"
+          data-element="span"
+          data-class-element="bold"
+        >
+          <i class="fas fa-bold"></i>
+        </button>
+        <button
+          aria-label="Souligner"
+          class="te-btn"
+          data-element="span"
+          data-class-element="underline"
+        >
+          <i class="fas fa-underline"></i>
+        </button>
+        <button
+          aria-label="Mettre italique"
+          class="te-btn"
+          data-element="span"
+          data-class-element="italic"
+        >
+          <i class="fas fa-italic"></i>
+        </button>
+        <button
+          aria-label="Ajouter une image"
+          class="te-btn"
+          data-element="img"
+          data-class-element="img"
+        >
+          <i class="fas fa-image"></i>
+        </button>
+        <button
+          aria-label="Ajouter un lien hypertexte"
+          class="te-btn"
+          data-element="a"
+          data-class-element="link"
+        >
+          <i class="fas fa-link"></i>
+        </button>
+      </div>
+      <iframe frameborder="0" src="./editor.html"></iframe>
+    </div>
+    <script src="/js/main.js"></script>
+
+    <div class="overlay">
+      <div class="url-container">
+        <div>
+          <input type="text" class="url-input" />
+        </div>
+        <button class="url-btn">Valider</button>
+      </div>
+    </div>
+  </body>
+</html>

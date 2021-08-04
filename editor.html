@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/css/editor.css" rel="stylesheet" />
+  </head>
+  <body contenteditable>
+    <h1>Codiscovery</h1>
+    <p>
+      Codiscovery est une communauté de développeuses et de développeurs en
+      reconversion.
+    </p>
+    <p>
+      Tous les mercredis de 19h à 21h, on se retrouve en direct afin de coder en
+      partant de zéro, un site, un programme que la communauté à choisie.
+    </p>
+    <p>
+      Et puisque dans les commentaires YouTube de ma vidéo sur les éditeurs,
+      j'ai eu plein de questions, alors on a fait une partie 2. Que voici !
+    </p>
+    <p>Enjoy</p>
+
+    <script>
+      document.body.addEventListener("keyup", () => {
+        const regex =
+          /http[s]?:\/\/(?:www\.)?youtube.com\/watch\?(?=.*v=([\w+]))(?:\S+)?/gi;
+        const text = document.body.innerHTML;
+        const textMatch = text.match(regex);
+
+        console.log("textMatch", textMatch);
+
+        if (textMatch) {
+          console.log("#1");
+          const idRegex = /=(.\w+)/i;
+          const link = textMatch[0];
+          const idMatch = link.match(idRegex);
+          if (idMatch) {
+            console.log("#2");
+            const youtubeId = idMatch[1];
+            // console.log("idMatch", idMatch);
+            const toReplace = `
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/${youtubeId}"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            `;
+
+            console.log("#3");
+            document.body.innerHTML = document.body.innerHTML.replace(
+              link,
+              toReplace
+            );
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
